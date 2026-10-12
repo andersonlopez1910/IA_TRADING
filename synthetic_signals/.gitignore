@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.py[cod]
+data/*.parquet
+data/*.jsonl
+models/*.joblib
+models/*.json

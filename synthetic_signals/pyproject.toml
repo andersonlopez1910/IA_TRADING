@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthetic-signals"
+version = "0.1.0"
+description = "Pipeline paper de análisis para índices sintéticos de Deriv"
+requires-python = ">=3.11"
+dependencies = [
+  "websockets>=15.0", "numpy>=2.0", "pandas>=2.2", "pyarrow>=16.0",
+  "scikit-learn>=1.5", "joblib>=1.4", "PyYAML>=6.0"
+]
+
+[project.scripts]
+synthetic-signals = "synthetic_signals.main:main"
+synthetic-train = "synthetic_signals.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

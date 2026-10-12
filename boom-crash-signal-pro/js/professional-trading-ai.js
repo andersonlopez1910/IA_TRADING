@@ -1,0 +1,1 @@
+export class ProfessionalTradingAI { explain(name,a,s){if(a.state)return 'Datos insuficientes: espera historial y velas cerradas.';return `${name==='BOOM'?'Boom 1000':'Crash 1000'} muestra ${a.last.direction}. La estructura se evalúa con EMA, RSI, ATR y patrón ${a.pattern}. ${s.why} Condición de invalidez: ${s.invalid}`;} }

@@ -1,0 +1,14 @@
+# Configuración segura por defecto: solo observación y señales PAPER.
+symbol: BOOM1000
+websocket_url: wss://api.derivws.com/trading/v1/options/ws/public
+tick_buffer_size: 2000
+history_count: 1000
+prediction_horizon_ticks: 25
+signal_probability_threshold: 0.80
+max_feed_silence_seconds: 5.0
+max_tick_gap_seconds: 10.0
+max_daily_drawdown_percent: 1.0
+paper_balance: 1000.0
+paper_risk_percent: 0.25
+storage_directory: data
+model_path: models/boom1000_spike_model.joblib

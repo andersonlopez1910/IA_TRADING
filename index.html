@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Panel informativo de cotizaciones y análisis técnico de Forex.">
+  <title>Forex Signal Pro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div><b>FOREX <i>SIGNAL PRO</i></b><small>Cotizaciones y análisis técnico · solo informativo</small></div>
+    <div class="status"><span id="forexHeaderStatus">○ Conectando mercado Forex</span></div>
+  </header>
+  <main>
+    <section class="notice">Las cotizaciones y análisis son informativos. No representan precios futuros ni garantizan resultados.</section>
+    <section class="panel forex-section" aria-labelledby="forexTitle">
+      <div class="forex-head"><div><small>MERCADO DE DIVISAS · ANÁLISIS M15</small><h2 id="forexTitle">Mercado Forex</h2></div><span id="forexStatus">Conectando…</span></div>
+      <div id="forexPairs" class="forex-pairs" aria-label="Pares de Forex" aria-live="polite">
+        <button class="forex-pair selected" data-pair="EUR/USD" type="button"><small>EUR/USD</small><b>—</b><span>—</span><div class="forex-card-meta"><span>H1 <strong>Conectando</strong></span><span>H4 <strong>Conectando</strong></span><span>Señal <strong>Conectando</strong></span><span>Confianza <strong>—</strong></span></div><em>Esperar · Conectando</em><small class="forex-updated">Actualizado —</small></button>
+        <button class="forex-pair" data-pair="GBP/USD" type="button"><small>GBP/USD</small><b>—</b><span>—</span><div class="forex-card-meta"><span>H1 <strong>Conectando</strong></span><span>H4 <strong>Conectando</strong></span><span>Señal <strong>Conectando</strong></span><span>Confianza <strong>—</strong></span></div><em>Esperar · Conectando</em><small class="forex-updated">Actualizado —</small></button>
+        <button class="forex-pair" data-pair="USD/JPY" type="button"><small>USD/JPY</small><b>—</b><span>—</span><div class="forex-card-meta"><span>H1 <strong>Conectando</strong></span><span>H4 <strong>Conectando</strong></span><span>Señal <strong>Conectando</strong></span><span>Confianza <strong>—</strong></span></div><em>Esperar · Conectando</em><small class="forex-updated">Actualizado —</small></button>
+        <button class="forex-pair" data-pair="XAU/USD" type="button"><small>XAU/USD</small><b>—</b><span>—</span><div class="forex-card-meta"><span>H1 <strong>Conectando</strong></span><span>H4 <strong>Conectando</strong></span><span>Señal <strong>Conectando</strong></span><span>Confianza <strong>—</strong></span></div><em>Esperar · Conectando</em><small class="forex-updated">Actualizado —</small></button>
+      </div>
+      <div class="forex-workspace">
+        <article class="forex-chart-wrap"><div class="forex-chart-head"><b id="forexPairTitle">EUR/USD · M15</b><span id="forexPrice">—</span></div><canvas id="forexChart" role="img" aria-label="Gráfico de velas del par Forex seleccionado"></canvas><div id="forexMetrics" class="forex-metrics">Cargando indicadores…</div></article>
+        <aside class="forex-analysis"><small>ANÁLISIS IA · ASISTENTE TÉCNICO</small><h3 id="forexSignal">ESPERAR</h3><div id="forexLevels"></div><p id="forexAiText">Cargando velas del par seleccionado…</p><small id="forexSource">La señal es informativa; no ejecuta operaciones.</small></aside>
+      </div>
+      <p class="forex-note">Las divisas se actualizan desde el proveedor configurado. Si no está disponible, se muestran valores de referencia y el estado lo indicará.</p>
+    </section>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

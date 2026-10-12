@@ -1,0 +1,1 @@
+const K='boom-crash-signal-pro';export const Store={all:()=>JSON.parse(localStorage.getItem(K)||'{"signals":[],"spikes":[]}'),add(type,item){const d=this.all();d[type].unshift(item);localStorage.setItem(K,JSON.stringify(d));}};

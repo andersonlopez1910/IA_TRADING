@@ -1,0 +1,12 @@
+import {MarketWebSocketClient} from './websocket-client.js';
+import {renderAnalysis,renderCards,renderHeader,renderSelected} from './market-ui.js';
+import {refreshDerivChart,renderDerivChart} from './tradingview-chart.js';
+
+const state={symbols:['EUR/USD','GBP/USD','USD/JPY','XAU/USD'],tv:{},quotes:{},selected:'EUR/USD',interval:'15',status:'connecting',source:'—',lastTickAt:null,latencyMs:null};
+function renderMarket(){state.analyses=state.analyses||{};renderCards({...state,onSelect:selectSymbol});renderHeader(state);renderSelected(state.selected,state.quotes[state.selected]);renderAnalysis(state.analyses[state.selected]||{},{...state,symbol:state.selected,quote:state.quotes[state.selected]});}
+function render(){renderMarket();void renderDerivChart({symbol:state.selected,interval:state.interval});}
+async function bootstrap(){try{const response=await fetch('/api/market/config');if(!response.ok)throw new Error('Configuración no disponible');const config=await response.json();state.symbols=config.symbols;state.tv=config.tradingViewSymbols;}catch{state.status='disconnected';}render();}
+function selectSymbol(symbol){state.selected=symbol;render();}
+document.querySelector('#timeframes').onclick=event=>{const button=event.target.closest('button');if(!button)return;state.interval=button.dataset.interval;document.querySelectorAll('#timeframes button').forEach(item=>item.classList.toggle('selected',item===button));render();};
+const socket=new MarketWebSocketClient({onState:message=>{state.status=message.status;renderHeader(state);renderAnalysis(state.analyses?.[state.selected]||{},{...state,symbol:state.selected,quote:state.quotes[state.selected]});},onMessage:message=>{if(message.type==='snapshot'){Object.assign(state,message);state.tv=state.tv||{};state.quotes=state.quotes||{};state.analyses=state.analyses||{};}if(message.type==='status'){state.status=message.status;state.source=message.source||state.source;state.lastTickAt=message.lastTickAt||state.lastTickAt;}if(message.type==='tick'){state.quotes[message.quote.symbol]=message.quote;state.status=message.quote.status;state.source=message.quote.source;state.lastTickAt=message.quote.timestamp;state.latencyMs=message.latencyMs;refreshDerivChart({symbol:state.selected,interval:state.interval});}if(message.type==='analysis'&&message.analysis?.symbol){state.analyses=state.analyses||{};state.analyses[message.analysis.symbol]=message.analysis;}renderMarket();}});
+await bootstrap();socket.connect();

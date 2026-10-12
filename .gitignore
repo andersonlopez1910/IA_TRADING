@@ -1,0 +1,8 @@
+.env
+*.key
+node_modules/
+.runtime/
+*.log
+server/data/*.jsonl
+__pycache__/
+*.py[cod]

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Forex Signal Pro — cotizaciones informativas en tiempo real.">
+  <title>Forex Signal Pro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div><b>FOREX <i>SIGNAL PRO</i></b><small>Cotizaciones informativas · sin ejecución de órdenes</small></div>
+    <div class="global-status"><span id="globalStatus">○ Conectando datos…</span><span id="sourceStatus">Fuente: sin configurar</span><span id="latencyStatus">Latencia: —</span></div>
+  </header>
+  <main>
+    <section class="notice" role="note">Las señales se basan en datos técnicos y fundamentales disponibles. No constituyen asesoría financiera, no garantizan resultados y deben ser verificadas por el usuario antes de operar.</section>
+    <section class="panel market-panel" aria-labelledby="marketTitle">
+      <div class="section-head"><div><small>DATOS DE MERCADO</small><h1 id="marketTitle">Mercado Forex</h1></div><span id="lastTick">Último tick: —</span></div>
+      <div id="pairGrid" class="pair-grid" aria-live="polite"></div>
+    </section>
+    <aside class="panel analysis" aria-labelledby="technicalTitle" aria-live="polite">
+      <div class="analysis-heading">
+        <div>
+          <small id="technicalTitle">LECTURA TÉCNICA</small>
+          <h2 id="signalState" class="decision-wait">ESPERAR</h2>
+        </div>
+        <div class="analysis-market-state">
+          <small>ESTADO DEL MERCADO</small>
+          <strong id="analysisMarketStatus" class="status-badge market-connecting">Conectando</strong>
+        </div>
+      </div>
+
+      <div class="analysis-hero">
+        <section class="analysis-summary" aria-label="Resumen de análisis">
+          <span class="field-label">Resumen operativo</span>
+          <p id="analysisText">Aguardando velas verificadas del feed oficial de Deriv.</p>
+          <p id="levels" class="analysis-levels">Entrada, riesgo y objetivos pendientes de datos verificables.</p>
+          <small id="dataDisclosure">No hay datos reales activos.</small>
+        </section>
+        <dl class="analysis-context" aria-label="Contexto del análisis">
+          <div><dt>Par</dt><dd id="analysisSymbol">—</dd></div>
+          <div><dt>Confianza</dt><dd id="analysisConfidence">—</dd></div>
+          <div><dt>Sesgo técnico</dt><dd id="analysisTechnicalBias">—</dd></div>
+          <div><dt>Sesgo fundamental</dt><dd id="analysisFundamentalBias">—</dd></div>
+          <div><dt>Actualización</dt><dd id="analysisUpdatedAt">—</dd></div>
+          <div><dt>Fuente de datos</dt><dd id="analysisSource">—</dd></div>
+        </dl>
+      </div>
+
+      <section class="analysis-section analysis-trade-plan" aria-labelledby="tradePlanTitle">
+        <h3 id="tradePlanTitle">Plan informativo</h3>
+        <div class="analysis-metrics">
+          <article><span>Zona de entrada</span><strong id="analysisEntryZone">—</strong><small id="analysisEntryTrigger">Sin condición de activación</small></article>
+          <article><span>Stop loss</span><strong id="analysisStopLoss">—</strong><small>Invalidación técnica</small></article>
+          <article><span>Objetivo 1</span><strong id="analysisTakeProfit1">—</strong><small>Primer objetivo</small></article>
+          <article><span>Objetivo 2</span><strong id="analysisTakeProfit2">—</strong><small>Segundo objetivo</small></article>
+          <article><span>Riesgo / beneficio</span><strong id="analysisRiskReward">—</strong><small id="analysisExpiry">Vigencia no disponible</small></article>
+        </div>
+      </section>
+
+      <section class="analysis-section" aria-labelledby="trendTitle">
+        <div class="analysis-section-heading"><h3 id="trendTitle">Tendencia multitemporal</h3><span id="analysisStructure">Estructura pendiente</span></div>
+        <div class="trend-grid">
+          <article><span>H4 · Contexto</span><strong id="trendH4">—</strong></article>
+          <article><span>H1 · Operativa</span><strong id="trendH1">—</strong></article>
+          <article><span>M15 · Zona</span><strong id="trendM15">—</strong></article>
+          <article><span>M5 · Confirmación</span><strong id="trendM5">—</strong></article>
+        </div>
+      </section>
+
+      <div class="analysis-detail-grid">
+        <section class="analysis-section" aria-labelledby="technicalReasonsTitle">
+          <h3 id="technicalReasonsTitle">Motivos técnicos</h3>
+          <ul id="technicalReasons" class="analysis-list"><li>Aguardando análisis técnico verificable.</li></ul>
+        </section>
+        <section class="analysis-section" aria-labelledby="fundamentalReasonsTitle">
+          <h3 id="fundamentalReasonsTitle">Motivos fundamentales</h3>
+          <ul id="fundamentalReasons" class="analysis-list"><li>Sin contexto fundamental verificable disponible.</li></ul>
+        </section>
+        <section class="analysis-section" aria-labelledby="newsTitle">
+          <h3 id="newsTitle">Noticias usadas y fuentes</h3>
+          <ul id="analysisNews" class="analysis-list"><li>Sin noticias verificadas utilizadas.</li></ul>
+        </section>
+        <section class="analysis-section" aria-labelledby="eventsTitle">
+          <h3 id="eventsTitle">Próximos eventos económicos</h3>
+          <ul id="economicEvents" class="analysis-list"><li>Sin eventos verificados disponibles.</li></ul>
+        </section>
+        <section class="analysis-section risk-section" aria-labelledby="risksTitle">
+          <h3 id="risksTitle">Riesgos</h3>
+          <ul id="analysisRisks" class="analysis-list"><li>El riesgo se evaluará cuando existan datos recientes.</li></ul>
+        </section>
+        <section class="analysis-section risk-section" aria-labelledby="invalidationTitle">
+          <h3 id="invalidationTitle">Condiciones de invalidación</h3>
+          <ul id="analysisInvalidation" class="analysis-list"><li>Sin condiciones de invalidación publicadas.</li></ul>
+        </section>
+        <section class="analysis-section" aria-labelledby="confirmationTitle">
+          <h3 id="confirmationTitle">Confirmación requerida</h3>
+          <ul id="analysisConfirmation" class="analysis-list"><li>Esperar una actualización del motor de análisis.</li></ul>
+        </section>
+        <section class="analysis-section" aria-labelledby="sourcesTitle">
+          <h3 id="sourcesTitle">Evidencia y procedencia</h3>
+          <ul id="analysisSources" class="analysis-list"><li>La evidencia se mostrará cuando la fuente la entregue.</li></ul>
+        </section>
+      </div>
+    </aside>
+    <section class="panel chart-panel" aria-label="Gráfico de precios Deriv">
+      <div class="chart-head"><div><b id="selectedPair">EUR/USD</b><small id="selectedPrice">Bid — · Ask — · Medio —</small></div><div id="timeframes" class="timeframes" aria-label="Temporalidad"><button data-interval="1">M1</button><button data-interval="5">M5</button><button class="selected" data-interval="15">M15</button><button data-interval="30">M30</button><button data-interval="60">H1</button><button data-interval="240">H4</button><button data-interval="D">D1</button></div></div>
+      <div id="tradingviewChart" class="tradingview-chart" aria-label="Gráfico OHLC alimentado por Deriv"></div>
+    </section>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
